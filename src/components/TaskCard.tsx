@@ -40,7 +40,7 @@ export default function TaskCard({
   return (
     <div
       ref={ref}
-      className={`border p-2 rounded bg-gray-50 space-y-1 ${
+      className={`border p-2 rounded bg-gray-50 space-y-1 bg-transparent ${
         isDragging ? 'opacity-40' : ''
       }`}
     >
@@ -49,12 +49,12 @@ export default function TaskCard({
           <input
             value={title}
             onChange={e => setTitle(e.target.value)}
-            className="border p-1 w-full"
+            className=" text-white uppercase"
           />
           <textarea
             value={desc}
             onChange={e => setDesc(e.target.value)}
-            className="border p-1 w-full text-sm"
+            className=" text-white uppercase"
           />
           <div className="flex gap-2">
             <button
@@ -62,11 +62,11 @@ export default function TaskCard({
                 onEdit(task.id, title, desc);
                 setEditing(false);
               }}
-              className="text-green-600"
+              className="text-white hover:underline mr-2 font-medium"
             >
               Сохранить
             </button>
-            <button onClick={() => setEditing(false)} className="text-gray-600">
+            <button onClick={() => setEditing(false)} className="text-white hover:underline mr-2 font-medium">
               Отмена
             </button>
           </div>
@@ -75,7 +75,7 @@ export default function TaskCard({
         <>
           <div className="flex justify-between items-center">
             <h4
-              className={`font-semibold ${
+              className={`font-semibold text-white uppercase ${
                 task.done ? 'line-through text-gray-400' : ''
               }`}
             >
@@ -88,15 +88,15 @@ export default function TaskCard({
             />
           </div>
           {task.description && (
-            <p className="text-xs text-gray-500">{task.description}</p>
+            <p className="text-white uppercase">{task.description}</p>
           )}
           <div className="text-sm flex gap-2">
-            <button onClick={() => setEditing(true)} className="text-blue-600">
+            <button onClick={() => setEditing(true)} className="text-white hover:underline mr-2 font-medium">
               Редактировать
             </button>
             <button
               onClick={() => onDelete(task.id)}
-              className="text-red-600"
+              className="text-white hover:underline mr-2 font-medium"
             >
               Удалить
             </button>

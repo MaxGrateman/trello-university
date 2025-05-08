@@ -43,19 +43,22 @@ function BoardList() {
       };
   
     return (
-        <div className="p-6">
-        <h1 className="text-2xl font-bold mb-4">Доски</h1>
+        <div className="p-6 h-screen dark:bg-gray-800 w-full">
+        <h1 className="text-2xl text-white font-bold mb-4">Доски</h1>
   
-        <div className="mb-6">
+        <div className="mb-6 border-b border-neutral-100 pb-4">
           <input
             value={newTitle}
             onChange={e => setNewTitle(e.target.value)}
-            className="border p-2 mr-2"
+            className="py-1.5 px-8 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none 
+                        dark:text-white dark:border-gray-600 dark:focus:border-violet-500 focus:outline-none focus:ring-0 focus:border-violet-600 peer
+                        placeholder:text-gray-600 placeholder:medium placeholder:tracking-wider placeholder:font-medium"
             placeholder="Название доски"
           />
           <button
             onClick={handleCreate}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            className="inline-flex items-center mt-4 px-3 py-2 text-sm font-medium text-center text-white bg-violet-500 rounded-lg 
+            hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-violet-500 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
           >
             Создать
           </button>
@@ -63,46 +66,47 @@ function BoardList() {
   
         <ul className="space-y-4">
           {boards.map(board => (
-            <li key={board.id} className="flex justify-between items-center bg-white p-4 rounded-2xl border shadow-sm cursor-pointer">
+            <li key={board.id} className="flex justify-between p-4 border border-neutral-100 shadow-sm shadow-neutral-100/50 rounded-md box-border cursor-pointer">
               {editingId === board.id ? (
                 <>
                   <input
                     value={editTitle}
                     onChange={e => setEditTitle(e.target.value)}
-                    className="border p-1"
+                    className="p-1 bg-transparent text-white border border-neutral-100 shadow-sm shadow-neutral-100/50 rounded-md box-border"
                   />
+                  <div className="flex-1"></div>
                   <button
                     onClick={() => submitEdit(board.id)}
-                    className="text-green-600 hover:underline"
+                    className="text-white hover:underline mr-2 font-medium"
                   >
-                    Сохранить
+                    СОХРАНИТЬ
                   </button>
                   <button
                     onClick={() => setEditingId(null)}
-                    className="text-gray-600 hover:underline"
+                    className="text-violet-500 hover:underline font-medium"
                   >
-                    Отмена
+                    ОТМЕНА
                   </button>
                 </>
               ) : (
                 <>
                   <Link
                     to={`/board/${board.id}`}
-                    className="text-blue-600 hover:underline flex-1"
+                    className="text-white hover:underline flex-1 uppercase"
                   >
                     {board.name}
                   </Link>
                   <button
                     onClick={() => startEdit(board.id, board.name)}
-                    className="text-yellow-600 hover:underline mr-2"
+                    className="text-white hover:underline mr-2 font-medium"
                   >
-                    Редактировать
+                    РЕДАКТИРОВАТЬ
                   </button>
                   <button
                     onClick={() => handleDelete(board.id)}
-                    className="text-red-600 hover:underline"
+                    className="text-violet-500 hover:underline font-medium"
                   >
-                    Удалить
+                    УДАЛИТЬ
                   </button>
                 </>
               )}

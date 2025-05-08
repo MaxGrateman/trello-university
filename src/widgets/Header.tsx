@@ -7,7 +7,7 @@ function Header() {
             <nav className="grid grid-cols-3 w-full max-w-[98%] p-2 mx-auto">
                 <div className='flex items-center justify-between w-96'>
                     <Link to='/'>
-                        <h2 className="text-3xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white">Trello</h2>
+                        <h2 className="text-3xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white hover:text-gray-200">Trello-a-like</h2>
                     </Link>
                 </div>
             </nav>

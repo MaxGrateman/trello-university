@@ -51,7 +51,7 @@ function Column({ column, index, moveColumn, children }: ColumnProps) {
   return (
     <div
       ref={ref}
-      className={`bg-white rounded shadow p-3 min-w-[250px] space-y-2 opacity-${
+      className={`w-full h-[95%] flex flex-col gap-2 box-border p-8 border-neutral-100 shadow-sm shadow-neutral-100/50 border rounded-lg min-w-[250px] space-y-2 opacity-${
         isDragging ? '40' : '100'
       }`}
     >
